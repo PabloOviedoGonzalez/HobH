@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public KeyCode LeftArrow, RightArrow, UpArrow, DownArrow, Space; //cambiar las teclas desde el editor
     public float speed = 10;
     public SpriteRenderer spriteRenderer;
+    public float auxSpeed;
 
 
     // Start is called before the first frame update
