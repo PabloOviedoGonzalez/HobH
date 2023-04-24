@@ -11,7 +11,14 @@ public class Player : MonoBehaviour
     //private Animator animator;
     public string Boolwalk = "walking";
     public string Boolruning = "runing";
-    
+
+    public float shootRate = 0.5f;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawner;
+    private bool canShoot = true;
+    private bool shooting;
+   
+
 
 
 
@@ -45,13 +52,13 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector3(-auxiliarspeed, rb.velocity.y, 0);
                 //animator.SetBool(Boolwalk, true);
-                //transform.localScale = new Vector3(-3f, 2.3f, -1f);
+                transform.localScale = new Vector3(-3f, 2.3f, 1f);
             }
            else if (Input.GetKey(KeyCode.D))
             {
                 rb.velocity = new Vector3(auxiliarspeed, rb.velocity.y, 0);
                 //animator.SetBool(Boolwalk, true);
-                //transform.localScale = new Vector3(3f, 2.3f, 1f);
+                transform.localScale = new Vector3(3f, 2.3f, 1f);
 
             }
             else
@@ -63,16 +70,41 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector3(rb.velocity.x, auxiliarspeed, 0);
                 //animator.SetBool(Boolwalk, true);
-                //transform.localScale = new Vector3(-3f, -2.3f, -1f);
+                transform.localScale = new Vector3(-3f, 2.3f, 1f);
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 rb.velocity = new Vector3(rb.velocity.x, -auxiliarspeed, 0);
                 //animator.SetBool(Boolwalk, true);
-                //transform.localScale = new Vector3(3f, -2.3f, 1f);
+                transform.localScale = new Vector3(3f, -2.3f, 1f);
 
             }
+            shooting = ShootManager.Fire;
+            Shoot();
+            
         }
+    }
+    private void Shoot()
+    {
+        
+        if (shooting && canShoot)
+        {
+            StartCoroutine(FireRate());
+             
+        }
+    }
+
+   
+    private IEnumerator FireRate()
+    {
+        canShoot = false;
+        var bullet = Instantiate(
+            bulletPrefab,
+            bulletSpawner.position,
+            bulletSpawner.rotation);
+        Destroy(bullet, 5);
+        yield return new WaitForSeconds(shootRate);
+        canShoot = true;
     }
 }
 
