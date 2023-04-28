@@ -18,7 +18,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * moveSpeed;
+        float auxiliarspeed = moveSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            auxiliarspeed*= 2;
+        }
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * auxiliarspeed;
         //Las animaciones van aqui 
         if (rb.velocity.x > 0.1 && rb.velocity.y < 0.1 && rb.velocity.y > -0.1)
             anim.Play("derecha");

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6028306663587968360}
   - component: {fileID: 262312344686987583}
-  - component: {fileID: -6165986408100171403}
   - component: {fileID: -206766467056550150}
+  - component: {fileID: 6777159979016424879}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Bullet
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6165986408100171403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9109556767677877104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516a86172fbc7524db4b63401924b7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
 --- !u!61 &-206766467056550150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6777159979016424879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109556767677877104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabcda34a95ba58498a85de4ad1b9251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 20
+  "da\xF1o": 20
