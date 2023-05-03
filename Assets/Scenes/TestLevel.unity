@@ -1868,6 +1868,7 @@ GameObject:
   - component: {fileID: 1674873771}
   - component: {fileID: 1674873773}
   - component: {fileID: 1674873772}
+  - component: {fileID: 1674873774}
   m_Layer: 5
   m_Name: Kills
   m_TagString: Untagged
@@ -1992,6 +1993,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674873770}
   m_CullTransparentMesh: 1
+--- !u!114 &1674873774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674873770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d51135275cf17d439d63db483fbea3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyKillsText: {fileID: 1674873772}
 --- !u!1 &1675002416
 GameObject:
   m_ObjectHideFlags: 0
@@ -31457,6 +31471,7 @@ GameObject:
   - component: {fileID: 1969131072}
   - component: {fileID: 1969131074}
   - component: {fileID: 1969131073}
+  - component: {fileID: 1969131075}
   m_Layer: 5
   m_Name: puntos
   m_TagString: Untagged
@@ -31581,6 +31596,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969131071}
   m_CullTransparentMesh: 1
+--- !u!114 &1969131075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969131071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea532ce5ae790741ade3fada4695697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntosText: {fileID: 1969131073}
 --- !u!4 &1984808449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6755162301608426210, guid: ceca991f8b685ba41b841fe72aa7b77c, type: 3}

@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
    
-    private float punctuation = 0;//Para la puntuacion.
+    private int punctuation = 0;//Para la puntuacion.
     private float time = 0;//Para el tiempo.
     private int enemyPoints;
+    private int enemyKills = 0;
 
 
 
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         enemyPoints += value;
     }
 
-    public float GetPunt()
+    public int GetPunt()
     {
         return punctuation;
     }
@@ -61,9 +62,19 @@ public class GameManager : MonoBehaviour
         return time;
     }
 
-    public float GetEnemyPoints()
+    public int GetEnemyPoints()
     {
         return enemyPoints;
+    }
+
+    public int GetenemyKills()
+    {
+        return enemyKills;
+    }
+
+    public void AddenemyKills(int value)
+    {
+        enemyKills += value;
     }
 
     public void ExitTheGame(string Exit)

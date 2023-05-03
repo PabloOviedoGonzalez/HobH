@@ -13,6 +13,8 @@ public class Enemigo : MonoBehaviour
         if (vida <= 0)
         {
             Destroy(gameObject);
+            //GameManager.instance.AddenemyKills(1);
+            //GameManager.instance.AddEnemyPoints(10);
         }
     }
 }
