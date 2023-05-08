@@ -77,6 +77,14 @@ public class GameManager : MonoBehaviour
         enemyKills += value;
     }
 
+    //public void LevelUp(int value) 
+    //{
+    //    if (enemyPoints = 100)
+    //    {
+
+    //    }
+    //}
+
     public void ExitTheGame(string Exit)
     {
         //AudioManager.instance.ClearAudioList();

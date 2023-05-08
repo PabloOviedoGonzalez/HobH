@@ -78,6 +78,7 @@ public class EnemyIA : MonoBehaviour
     {
         
         return Vector3.Distance(transform.position, Player.transform.position) <= range; //Devuelve el resultado de si la posicion de range es verdfadera o falso.
+        //Crear if para cambiare de escena.
 
     }
     

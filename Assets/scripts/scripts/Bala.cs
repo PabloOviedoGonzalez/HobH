@@ -5,14 +5,21 @@ using UnityEngine;
 public class Bala : MonoBehaviour
 {
     [SerializeField] private float velocidad;
-    [SerializeField] private float daño;
+    [SerializeField] private float damage;
 
     float currentTime;
     private float maxTime = 4f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameManager.instance.GetEnemyPoints() >= 1)
+        {
+            damage *= 2;
+        }
+        if (GameManager.instance.GetEnemyPoints() >= 20)
+        {
+            damage *= 4;
+        }
     }
 
     // Update is called once per frame
@@ -32,7 +39,7 @@ public class Bala : MonoBehaviour
     {
         if( other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemigo>().TomarDaño(daño);
+            other.GetComponent<Enemigo>().TomarDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  countdown: 3
   target: {fileID: 589090083478265007, guid: 00f5639ca7d746a4e9605718367a715e, type: 3}
   ObjectToFollow: {fileID: 0}
 --- !u!50 &-1999850035928672723
@@ -163,4 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80c5a8dd5c0acd42ab26a49a2ee5778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 40
+  vida: 60

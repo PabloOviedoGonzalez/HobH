@@ -6,7 +6,7 @@ public class BasicEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed;
-    public int countdown = 0;
+    private int countdown = 4;
     Vector2 dir;
     public GameObject target;
     private const string Tag = "Player";
@@ -40,23 +40,24 @@ public class BasicEnemy : MonoBehaviour
 
 
 
-//private void OnTriggerEnter2D(Collider2D col)
-//    {
-//        if (col.CompareTag("Bullet"))
-//        {
-//            if (countdown < 3)
-//            {
-//                Destroy(col.gameObject);
-//                Destroy(gameObject);
-//            }
-            
-//        }
-        //if (col.CompareTag("MainCharacter"))
-        //{
+    //private void ontriggerenter2d(collider2d col)
+    //{
+    //    if (col.comparetag("bullet"))
+    //    {
+    //        if (countdown < 3)
+    //        {
+    //            destroy(col.gameobject);
+    //            destroy(gameobject);
+    //        }
 
-        //    Destroy(col.gameObject);
-        //    SceneManager.LoadScene("Practica2");
+    //    }
+    //    if (col.comparetag("maincharacter"))
+    //    {
 
-        //}
-    }
+    //        destroy(col.gameobject);
+    //        scenemanager.loadscene("practica2");
+
+    //    }
+    //}
+}
 
