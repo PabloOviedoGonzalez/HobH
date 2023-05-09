@@ -30,7 +30,7 @@ public class EnemyIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = FindObjectOfType<Player>().gameObject;
+        Player = FindObjectOfType<PlayerController>().gameObject;
         myRigidbody = GetComponent<Rigidbody2D>();
         //target = Player.GetComponent<Transform>();
         animator = GetComponent<Animator>();
