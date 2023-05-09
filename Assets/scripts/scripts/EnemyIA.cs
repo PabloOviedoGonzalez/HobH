@@ -25,7 +25,7 @@ public class EnemyIA : MonoBehaviour
     public string boolruning = "runing";
     public float currentTime;
     public Vector2 dir;
-    public int Health;
+    
 
     public float maxTime = 1.0f;
 
@@ -74,13 +74,15 @@ public class EnemyIA : MonoBehaviour
         }
         //Crear un temporizador para que cambie de direecion cada x tiempo.
        
-        if (GameManager.instance.GetEnemyPoints() >= 1)
-        {
-            Health /=2;
-        }
         if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
         {
-            Health = 2000;
+            Enemigo e = GetComponent<Enemigo>();
+            if (e.GetHealth() > 2000)
+                e.SetHealth(2000);
+        }
+        else if (GameManager.instance.GetEnemyPoints() >= 1)
+        {
+            GetComponent<Enemigo>().SetHealth(GetComponent<Enemigo>().GetHealth() / 2);
         }
         
     }
@@ -132,16 +134,7 @@ public class EnemyIA : MonoBehaviour
 
 
     }
-    public void TomarDamage(int damage)
-    {
-        Health -= damage;
-
-        if (Health <= 0)
-        {
-            Destroy(gameObject);
-            
-        }
-    }
+   
     void Fear()
     {
         Vector2 dir = (target.transform.position - transform.position).normalized;

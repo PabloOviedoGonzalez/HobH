@@ -46,5 +46,8 @@ public class Bala : MonoBehaviour
             other.GetComponent<Enemigo>().TomarDamage(damage);
             Destroy(gameObject);
         }
+        
+
+
     }
 }

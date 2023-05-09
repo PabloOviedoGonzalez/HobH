@@ -17,4 +17,15 @@ public class Enemigo : MonoBehaviour
             GameManager.instance.AddEnemyPoints(10);
         }
     }
+
+    public float GetHealth()
+    {
+        return vida;
+    }
+
+    public void SetHealth(float value)
+    {
+        vida = value;
+    }
+
 }
