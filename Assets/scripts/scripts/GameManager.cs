@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float time = 0;//Para el tiempo.
     private int enemyPoints;
     private int enemyKills = 0;
+    public int IsPlayerLevelMax = 10;
 
 
 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
 
 

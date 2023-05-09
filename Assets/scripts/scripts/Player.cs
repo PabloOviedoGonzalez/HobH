@@ -11,12 +11,13 @@ public class Player : MonoBehaviour
     //private Animator animator;
     public string Boolwalk = "walking";
     public string Boolruning = "runing";
-
+    private int Health;
     public float shootRate = 0.5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawner;
     private bool canShoot = true;
     private bool shooting;
+
    
 
 
@@ -81,7 +82,18 @@ public class Player : MonoBehaviour
             }
             shooting = ShootManager.Fire;
             Shoot();
-            
+            //Level 
+            if (GameManager.instance.GetEnemyPoints() >= 1)
+                Debug.Log("Level1");
+            {
+               Health *= 2;
+            }
+            if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
+            {
+                Debug.Log("Lavel MAx");
+                Health = 2000;
+            }
+
         }
     }
     private void Shoot()
@@ -106,5 +118,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(shootRate);
         canShoot = true;
     }
+    
 }
 
