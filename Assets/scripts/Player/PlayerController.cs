@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             auxiliarspeed*= 2;
         }
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * auxiliarspeed;
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") , Input.GetAxis("Vertical")).normalized * auxiliarspeed;
         //Las animaciones van aqui 
         if (rb.velocity.x > 0.1 && rb.velocity.y < 0.1 && rb.velocity.y > -0.1)
             anim.Play("derecha");
