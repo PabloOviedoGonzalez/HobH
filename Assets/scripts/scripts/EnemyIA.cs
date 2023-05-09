@@ -8,6 +8,7 @@ public enum EnemyState
 {
     Wander,
     Follow,
+    Fear,
     Die,
 };
 
@@ -24,13 +25,14 @@ public class EnemyIA : MonoBehaviour
     public string boolruning = "runing";
     public float currentTime;
     public Vector2 dir;
-   
+    
+
     public float maxTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = FindObjectOfType<Player>().gameObject;
+        Player = FindObjectOfType<PlayerController>().gameObject;
         myRigidbody = GetComponent<Rigidbody2D>();
         //target = Player.GetComponent<Transform>();
         animator = GetComponent<Animator>();
@@ -49,8 +51,11 @@ public class EnemyIA : MonoBehaviour
             case (EnemyState.Follow):
                 Follow();
                 break;
+            case (EnemyState.Fear):
+                Fear();
+                break;
             case (EnemyState.Die):
-                // Die();
+                Die();
                 break;
         }
 
@@ -61,8 +66,45 @@ public class EnemyIA : MonoBehaviour
         else if (!IsPlayerInRange(range) && currState != EnemyState.Die)
         {
             currState = EnemyState.Wander;
+
+        }
+        else if(!IsPlayerInRange(range) && !IsPlayerLevelMax(range) && currState != EnemyState.Die)
+        {
+            currState = EnemyState.Fear;
         }
         //Crear un temporizador para que cambie de direecion cada x tiempo.
+       
+        if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
+        {
+            Enemigo e = GetComponent<Enemigo>();
+            if (e.GetHealth() > 2000)
+                e.SetHealth(2000);
+        }
+        else if (GameManager.instance.GetEnemyPoints() >= 1)
+        {
+            GetComponent<Enemigo>().SetHealth(GetComponent<Enemigo>().GetHealth() / 2);
+        }
+        
+    }
+    public bool IsPlayerInRange(float range)
+    {
+        
+        return Vector3.Distance(transform.position, Player.transform.position) <= range; //Devuelve el resultado de si la posicion de range es verdfadera o falso.
+       
+
+    }
+    private bool IsPlayerLevelMax(float range)
+    {
+        
+        
+        return GameManager.instance.GetEnemyPoints() >= 10;
+        
+    }
+
+    void Wander()
+    {
+        //Debug.Log("Wander");
+        myRigidbody.velocity = dir * moveSpeed;
         currentTime += Time.deltaTime;
         if (currentTime >= maxTime)
         {
@@ -70,22 +112,6 @@ public class EnemyIA : MonoBehaviour
             dir.y = Random.Range(-1, 2);
             currentTime = 0;
         }
-    }
-
-
-
-    public bool IsPlayerInRange(float range)
-    {
-        
-        return Vector3.Distance(transform.position, Player.transform.position) <= range; //Devuelve el resultado de si la posicion de range es verdfadera o falso.
-        //Crear if para cambiare de escena.
-
-    }
-    
-    void Wander()
-    {
-        //Debug.Log("Wander");
-        myRigidbody.velocity = dir * moveSpeed;
         //animator.SetBool(boolwalk, true);
     }
     private void OnTriggerEnter2D(Collider2D col)
@@ -108,16 +134,28 @@ public class EnemyIA : MonoBehaviour
 
 
     }
-
-
-
-
+   
+    void Fear()
+    {
+        Vector2 dir = (target.transform.position - transform.position).normalized;
+        //Debug.Log(dir);
+        Vector2 pos = -dir * range;
+        transform.Translate(pos * Time.deltaTime * 2);
+    }
     void Follow() 
     {
         //Debug.Log("follow");
         myRigidbody.velocity = new Vector2(0f, 0f);
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed *Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed *Time.deltaTime *2);
         //animator.SetBool(boolruning, true);
     }
+    
+    void Die()
+    {
+        Destroy(gameObject);
+        GameManager.instance.ChangeScene("Victory");
+        
+    }
+    
 }
 

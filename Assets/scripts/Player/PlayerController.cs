@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 15f;
     private Rigidbody2D rb;
     private Animator anim;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -42,4 +43,5 @@ public class PlayerController : MonoBehaviour
         else if (rb.velocity.x < -0.1 && rb.velocity.y < -0.1)
             anim.Play("frontal_izq");
     }
+   
 }

@@ -12,13 +12,17 @@ public class Bala : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.instance.GetEnemyPoints() >= 1)
+        if (GameManager.instance.GetEnemyPoints() >= 100)
         {
             damage *= 2;
         }
-        if (GameManager.instance.GetEnemyPoints() >= 20)
+        if (GameManager.instance.GetEnemyPoints() >= 1)
         {
             damage *= 4;
+        }
+        if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
+        {
+            damage *= 8;
         }
     }
 
@@ -42,5 +46,8 @@ public class Bala : MonoBehaviour
             other.GetComponent<Enemigo>().TomarDamage(damage);
             Destroy(gameObject);
         }
+        
+
+
     }
 }
