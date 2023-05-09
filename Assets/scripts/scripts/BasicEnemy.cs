@@ -6,7 +6,7 @@ public class BasicEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed;
-    private int countdown = 4;
+   // private int countdown = 4;
     Vector2 dir;
     public GameObject target;
     private const string Tag = "Player";

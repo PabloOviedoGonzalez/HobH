@@ -31306,31 +31306,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 699799222652291809, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
   m_PrefabInstance: {fileID: 699799222122938314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1917748304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917748296}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d589dbd16003caf45a557d8829db9ec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftArrow: 97
-  RightArrow: 100
-  UpArrow: 119
-  DownArrow: 115
-  Space: 119
-  LeftShift: 32
-  speed: 10
-  spriteRenderer: {fileID: 0}
-  Boolwalk: walking
-  Boolruning: runing
-  shootRate: 0.5
-  bulletPrefab: {fileID: 0}
-  bulletSpawner: {fileID: 0}
 --- !u!114 &1917748310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31345,6 +31320,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controladordisparo: {fileID: 69326585}
   bala: {fileID: 9109556767677877104, guid: 1f15587b139fe2d4a9a54444844bb624, type: 3}
+--- !u!114 &1917748316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917748296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733319b67c41c34dbf5200424908fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthofplayer: 20
 --- !u!1 &1938528515
 GameObject:
   m_ObjectHideFlags: 0
@@ -31838,6 +31826,14 @@ PrefabInstance:
       propertyPath: m_Simulated
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 699799222652291810, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 699799222652291811, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 699799222652291811, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -31852,6 +31848,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699799222652291821, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 699799222652291821, guid: 1d5861305064ac14cbc79320928a9bc0, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
