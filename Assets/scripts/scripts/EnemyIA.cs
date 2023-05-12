@@ -72,7 +72,7 @@ public class EnemyIA : MonoBehaviour
         {
             currState = EnemyState.Fear;
         }
-        //Crear un temporizador para que cambie de direecion cada x tiempo.
+        
        
         if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
         {
@@ -112,7 +112,7 @@ public class EnemyIA : MonoBehaviour
             dir.y = Random.Range(-1, 2);
             currentTime = 0;
         }
-        //animator.SetBool(boolwalk, true);
+        animator.SetBool(boolwalk, true);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -141,13 +141,14 @@ public class EnemyIA : MonoBehaviour
         //Debug.Log(dir);
         Vector2 pos = -dir * range;
         transform.Translate(pos * Time.deltaTime * 2);
+        animator.SetBool(boolruning, true);
     }
     void Follow() 
     {
         //Debug.Log("follow");
         myRigidbody.velocity = new Vector2(0f, 0f);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed *Time.deltaTime *2);
-        //animator.SetBool(boolruning, true);
+        animator.SetBool(boolruning, true);
     }
     
     void Die()
