@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4073104481877415624
+--- !u!1 &7029206516078373496
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 863551201151348327}
-  - component: {fileID: 8170059862742701658}
-  - component: {fileID: -1195945401203517448}
-  - component: {fileID: -1999850035928672723}
-  - component: {fileID: 1541334319343680562}
-  - component: {fileID: 5800303918898871006}
-  - component: {fileID: 4669929002006738990}
+  - component: {fileID: 5976738338555581143}
+  - component: {fileID: 2912618186767084266}
+  - component: {fileID: 3921919604408724296}
+  - component: {fileID: 4410512890986490525}
+  - component: {fileID: 5506138186532094082}
+  - component: {fileID: 681311596314183278}
+  - component: {fileID: 1856814868423459998}
+  - component: {fileID: 8158228782769220702}
   m_Layer: 0
-  m_Name: Isometric Diamond
+  m_Name: Isometric Diamond 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &863551201151348327
+--- !u!4 &5976738338555581143
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1699996, y: -0.65999985, z: 0.32598457}
+  m_LocalPosition: {x: -5.784588, y: 18.15659, z: 0.3301943}
   m_LocalScale: {x: 1.7071, y: 1.7071, z: 1.7071}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8170059862742701658
+--- !u!212 &2912618186767084266
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 41dc9901519a258419ee729f45341395, type: 3}
+  m_Color: {r: 0.5, g: 0.08254716, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,13 +90,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1195945401203517448
+--- !u!114 &3921919604408724296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58892397b8a197b4da1e3a220a844535, type: 3}
@@ -104,14 +105,14 @@ MonoBehaviour:
   speed: 0.5
   target: {fileID: 589090083478265007, guid: 00f5639ca7d746a4e9605718367a715e, type: 3}
   ObjectToFollow: {fileID: 0}
---- !u!50 &-1999850035928672723
+--- !u!50 &4410512890986490525
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -125,13 +126,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1541334319343680562
+--- !u!61 &5506138186532094082
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -142,7 +143,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,29 +152,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &5800303918898871006
+--- !u!114 &681311596314183278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d80c5a8dd5c0acd42ab26a49a2ee5778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 60
---- !u!114 &4669929002006738990
+--- !u!114 &1856814868423459998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073104481877415624}
+  m_GameObject: {fileID: 7029206516078373496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a3e9c17ffbca5e45b1dfb5577d8b2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!95 &8158228782769220702
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029206516078373496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83671b5800ff8ad4eaafde86fdfa0388, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

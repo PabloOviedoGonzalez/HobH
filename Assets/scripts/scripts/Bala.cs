@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Bala : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     [SerializeField] private float damage;
+    
 
     float currentTime;
     private float maxTime = 4f;
+   
     // Start is called before the first frame update
     void Start()
     {
+
+       
+
+
         if (GameManager.instance.GetEnemyPoints() >= 100)
         {
             damage *= 2;
+            
+
+
         }
         if (GameManager.instance.GetEnemyPoints() >= 1)
         {
