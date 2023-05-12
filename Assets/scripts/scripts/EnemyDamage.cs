@@ -14,6 +14,7 @@ public class EnemyDamage : MonoBehaviour
             Vector2 enemyDir = -(transform.position - other.transform.position).normalized;
             other.GetComponent<Rigidbody2D>().AddForce(enemyDir*500);
             StartCoroutine(DeactivatePlayerController(other.gameObject));
+            
         }
     }
 
