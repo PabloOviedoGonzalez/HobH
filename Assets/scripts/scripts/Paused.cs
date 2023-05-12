@@ -5,19 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Paused : MonoBehaviour
 {
-    [SerializeField] private GameObject botonpausa;
+    
     [SerializeField] private GameObject menupausa;
-    public void Pausa()
+    public void Update()
     {
-        Time.timeScale = 0f;
-        botonpausa.SetActive(false);
-        menupausa.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0f;
+            menupausa.SetActive(true);
+        }
+
     }
 
     public void reanudar()
     {
         Time.timeScale = 1f;
-        botonpausa.SetActive(true);
         menupausa.SetActive(false);
     }
         
