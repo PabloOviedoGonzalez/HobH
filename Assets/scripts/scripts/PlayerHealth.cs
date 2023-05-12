@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    protected int Health= 30;
+    private int Health= 30;
     //[SerializeField] private int healthofplayer;
     private void Update()
     {
@@ -34,11 +34,6 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene("GameOver");
 
         }
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 
 }
