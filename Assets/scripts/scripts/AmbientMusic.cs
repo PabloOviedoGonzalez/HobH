@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zona : MonoBehaviour
+public class AmbientMusic : MonoBehaviour
 {
-    // Musica reproducir en esta zona
-    public int musicToPlay;
-    // Variable para saber si la musica ya esta sonando
-    private bool musicStarted;
-
+    public AudioClip ambientMusic;
+    [Range(0, 1)]
+    public float volumeMusic;
     // Start is called before the first frame update
     void Start()
     {
-
+        AudioManager.instance.PlayAudioOnLoop(ambientMusic, volumeMusic);
     }
 
     // Update is called once per frame
@@ -20,6 +18,4 @@ public class Zona : MonoBehaviour
     {
 
     }
-
-
 }

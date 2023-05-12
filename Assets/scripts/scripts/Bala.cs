@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
 public class Bala : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     [SerializeField] private float damage;
-
+    //public Queue<Sprite> QueueWeapons;
     float currentTime;
     private float maxTime = 4f;
     // Start is called before the first frame update
     void Start()
     {
+        //QueueWeapons = new Queue<Sprite>();
+        //QueueWeapons.Enqueue(sprite) ;
+
         if (GameManager.instance.GetEnemyPoints() >= 100)
         {
             damage *= 2;

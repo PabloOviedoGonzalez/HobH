@@ -7,12 +7,17 @@ public class Disparo : MonoBehaviour
     [SerializeField] private Transform Controladordisparo;
     [SerializeField] private GameObject bala;
 
+    float currentTime;
+    private float maxTime = 1.3f;
+
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        currentTime += Time.deltaTime;
+        if (Input.GetButtonDown("Fire1") && currentTime >= maxTime)
         {
             //Disparar
             Disparar();
+            currentTime = 0;
         }
     }
 
