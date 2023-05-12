@@ -8,7 +8,7 @@ public class Disparo : MonoBehaviour
     [SerializeField] private GameObject bala;
 
     float currentTime;
-    private float maxTime = 1.3f;
+    private float maxTime = 1.1f;
 
     private void Update()
     {

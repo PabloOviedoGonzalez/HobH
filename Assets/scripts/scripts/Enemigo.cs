@@ -21,6 +21,7 @@ public class Enemigo : MonoBehaviour
             GameManager.instance.AddEnemyPoints(10);
             AudioManager.instance.PlayAudio(deadMusic, volumeMusic);
         }
+        GameManager.instance.ChangeScene("MainMenu");
     }
 
     public float GetHealth()

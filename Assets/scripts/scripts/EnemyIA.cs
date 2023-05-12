@@ -77,6 +77,7 @@ public class EnemyIA : MonoBehaviour
             currState = EnemyState.Fear;
         }
         
+        
        
         if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
         {
@@ -88,6 +89,7 @@ public class EnemyIA : MonoBehaviour
         {
             GetComponent<Enemigo>().SetHealth(GetComponent<Enemigo>().GetHealth() / 2);
         }
+        
         
     }
     public bool IsPlayerInRange(float range)
@@ -164,7 +166,7 @@ public class EnemyIA : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        GameManager.instance.ChangeScene("Victory");
+        GameManager.instance.ChangeScene("MainMenu");
         
     }
     
