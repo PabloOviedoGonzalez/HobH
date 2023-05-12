@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    public struct Stat
+    {
+        public int currentValue;
+        public int maxValue;
+    }
+
+
     public static GameManager instance;
 
    
@@ -15,6 +22,9 @@ public class GameManager : MonoBehaviour
     private int enemyKills = 0;
     public int IsPlayerLevelMax = 10;
     public int Health = 30;
+    public int experience;
+    public Stat health;
+    public const int max_experience = 100;
 
 
 
@@ -34,6 +44,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeHealth(int value)
+    {
+        health.currentValue = Mathf.Clamp(health.currentValue + value, 0, health.maxValue);
+    }
+
+    public void Addexperience(int exp)
+    {
+        experience += exp;
+        if (experience > max_experience)
+            experience = 0;
+    }
 
 
 
