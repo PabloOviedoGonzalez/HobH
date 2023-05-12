@@ -1,79 +1,69 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class AudioManager : MonoBehaviour
-{
-    // Array para los sonidos y la musica del juego
-    public AudioSource[] sfx;
-    public AudioSource[] bgm;
-
-
-    // Hacemos una referencia singleton
-    public static AudioManager singleton;
-    // Inicializamos el singleton 
-    private void Awake()
+{//Es el encargado de controlar la musica de las escenas.
+    static public AudioManager instance;
+    private List<GameObject> activeAudioGameObject;
+    void Awake()
     {
-        // Comprobamos si el singleton esta vacio y si lo esta queda rellenado con el contenido del codigo 
-        if (singleton == null)
-            singleton = this;
-
-        // Hace que el AudioManager no sea destruido al cambiar entre escenas 
-        DontDestroyOnLoad(gameObject);
-
-
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // Metodo para reproducir un sonido pasado por parametros 
-    public void PlaySfx(int numeroDeSonido)
-    {
-        //Solo si el sonido existe lo para por si ya estuviera sonando, y lo reproduce
-        if (numeroDeSonido < sfx.Length)
+        if (instance)
         {
-            sfx[numeroDeSonido].Stop();
-            sfx[numeroDeSonido].Play();
+            Destroy(gameObject);
         }
-
-
-    }
-
-    // Metodo que reproduce una musica pasada por parametros 
-
-    public void PlayBgm(int numeroDeMusica)
-    {
-        //Si no se esta reproduciendo ya la musica que queremos se paran todas y se reproduce la seleccionada si existe
-        if (!bgm[numeroDeMusica].isPlaying)
+        else
         {
-            StopMusic();
-            if (numeroDeMusica < bgm.Length)
-            {
-                bgm[numeroDeMusica].Play();
-               
-            }
+            instance = this;
+            activeAudioGameObject = new List<GameObject>();
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    // Metodo que para la musica 
-    public void StopMusic()
+    public AudioSource PlayAudio(AudioClip clip, float volume = 1) //Para audios de un solo recorrido
     {
-        //Para cualquier musica que estuviera sonando
-        for (int i = 0; i<bgm.Length; i++ )
+        GameObject sourceObj = new GameObject(clip.name);//Crea el objeto
+        activeAudioGameObject.Add(sourceObj);//La a�ade ala lista
+        sourceObj.transform.SetParent(this.transform);//Crea hijo
+        AudioSource source = sourceObj.AddComponent<AudioSource>();//a�ade el componente al objeto nuevo
+        source.clip = clip;//
+        source.volume = volume;//
+        source.Play();//hace el play
+        StartCoroutine(PlayAudio(source));//
+        return source;
+    }
+    public AudioSource PlayAudioOnLoop(AudioClip clip, float volume = 1) //Para audios en bucle
+    {
+        GameObject sourceObj = new GameObject(clip.name);
+        activeAudioGameObject.Add(sourceObj);
+        sourceObj.transform.SetParent(this.transform);
+        AudioSource source = sourceObj.AddComponent<AudioSource>();
+        source.clip = clip;
+        source.volume = volume;
+        source.loop = true;//Le a�ade la funcion de loop.
+        source.Play();
+        return source;
+    }
+    public void ClearAudioList()//borra la lista entera para que los aduios no se mezclen entre escenas.
+    {
+        foreach (GameObject go in activeAudioGameObject)
         {
-            bgm[i].Stop();
+            Destroy(go);
         }
-
-        
+        activeAudioGameObject.Clear();
+    }
+    IEnumerator PlayAudio(AudioSource source)
+    {
+        while (source && source.isPlaying)
+        {
+            yield return null;
+        }
+        if (source)
+        {
+            activeAudioGameObject.Remove(source.gameObject);
+            Destroy(source.gameObject);
+        }
     }
 }

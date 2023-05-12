@@ -25,7 +25,11 @@ public class EnemyIA : MonoBehaviour
     public string boolruning = "runing";
     public float currentTime;
     public Vector2 dir;
-    
+
+    public AudioClip wolfMusic;
+    [Range(0, 1)]
+    public float volumeMusic;
+
 
     public float maxTime = 1.0f;
 
@@ -72,7 +76,7 @@ public class EnemyIA : MonoBehaviour
         {
             currState = EnemyState.Fear;
         }
-        //Crear un temporizador para que cambie de direecion cada x tiempo.
+        
        
         if (GameManager.instance.GetEnemyPoints() >= GameManager.instance.IsPlayerLevelMax)
         {
@@ -112,7 +116,9 @@ public class EnemyIA : MonoBehaviour
             dir.y = Random.Range(-1, 2);
             currentTime = 0;
         }
-        //animator.SetBool(boolwalk, true);
+        animator.SetBool(boolwalk, true);
+        
+        transform.localScale = new Vector3(3f, 2.3f, 1f);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -141,13 +147,18 @@ public class EnemyIA : MonoBehaviour
         //Debug.Log(dir);
         Vector2 pos = -dir * range;
         transform.Translate(pos * Time.deltaTime * 2);
+        animator.SetBool(boolruning, true);
+        transform.localScale = new Vector3(3f, 2.3f, 1f);
     }
     void Follow() 
     {
         //Debug.Log("follow");
         myRigidbody.velocity = new Vector2(0f, 0f);
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed *Time.deltaTime *2);
-        //animator.SetBool(boolruning, true);
+        animator.SetBool(boolruning, true);
+        transform.localScale = new Vector3(-3f, 2.3f, -1f);
+        AudioManager.instance.PlayAudio(wolfMusic, volumeMusic);
+
     }
     
     void Die()
